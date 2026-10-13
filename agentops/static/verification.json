@@ -1,0 +1,4 @@
+{
+  "test_summary": "173 automated tests passed \u00b7 93% line coverage \u00b7 12/12 golden routing cases.",
+  "benchmark_summary": "Local engine measured at 1/10/25/50 client threads. Short synthetic runs; no live-provider or sustained-capacity claim."
+}

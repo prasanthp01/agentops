@@ -1,0 +1,49 @@
+name: verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  local-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Install pinned uv and locked dependencies
+        run: |
+          python3 -m pip install --user uv==0.12.15
+          uv sync --frozen
+      - name: Static checks
+        run: |
+          uv run ruff check agentops tests scripts operations
+          uv run ruff format --check agentops tests scripts operations
+          node --check agentops/static/app.js
+      - name: Application, security and recovery tests
+        run: uv run pytest --cov=agentops --cov-fail-under=90
+      - name: Canonical contract tests against private HTTP service
+        run: uv run python scripts/verify_contracts_http.py --output work/contracts-http.json
+      - name: Golden routing evaluation and contract drift
+        run: |
+          uv run python -m scripts.evaluate
+          uv run python -m scripts.export_contracts
+          git diff --exit-code -- contracts
+      - name: Dependency vulnerability check
+        run: uv run pip-audit
+      - name: Source hygiene
+        run: uv run python -m scripts.check_source
+      - name: Container build and isolated smoke
+        run: |
+          docker compose config --quiet
+          docker compose up -d --build
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8785/healthz; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Stop CI-owned containers, preserve volume
+        if: always()
+        run: docker compose down

@@ -1,0 +1,182 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "usage_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Usage Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "attempt_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Attempt Id",
+      "type": "string"
+    },
+    "model": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Model",
+      "type": "string"
+    },
+    "provider": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Provider",
+      "type": "string"
+    },
+    "deployment": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Deployment",
+      "type": "string"
+    },
+    "region": {
+      "enum": [
+        "EU",
+        "US",
+        "APAC"
+      ],
+      "title": "Region",
+      "type": "string"
+    },
+    "application_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Application Id",
+      "type": "string"
+    },
+    "environment": {
+      "enum": [
+        "sandbox",
+        "test",
+        "development",
+        "staging",
+        "production"
+      ],
+      "title": "Environment",
+      "type": "string"
+    },
+    "task": {
+      "enum": [
+        "summarize",
+        "classify",
+        "extract"
+      ],
+      "title": "Task",
+      "type": "string"
+    },
+    "kind": {
+      "const": "SIMULATED",
+      "title": "Kind",
+      "type": "string"
+    },
+    "input_tokens": {
+      "maximum": 100000,
+      "minimum": 0,
+      "title": "Input Tokens",
+      "type": "integer"
+    },
+    "output_tokens": {
+      "maximum": 8000,
+      "minimum": 0,
+      "title": "Output Tokens",
+      "type": "integer"
+    },
+    "cost_microusd": {
+      "minimum": 0,
+      "title": "Cost Microusd",
+      "type": "integer"
+    },
+    "currency": {
+      "const": "USD",
+      "title": "Currency",
+      "type": "string"
+    },
+    "pricing_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Pricing Version",
+      "type": "string"
+    },
+    "pricing_date": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "title": "Pricing Date",
+      "type": "string"
+    },
+    "provider_outcome": {
+      "enum": [
+        "healthy",
+        "429",
+        "503",
+        "timeout",
+        "invalid_json",
+        "context_overflow",
+        "restricted_region"
+      ],
+      "title": "Provider Outcome",
+      "type": "string"
+    },
+    "retry": {
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Retry",
+      "type": "integer"
+    },
+    "fallback_hop": {
+      "maximum": 3,
+      "minimum": 0,
+      "title": "Fallback Hop",
+      "type": "integer"
+    },
+    "modeled_latency_ms": {
+      "minimum": 0,
+      "title": "Modeled Latency Ms",
+      "type": "integer"
+    },
+    "external_llm_spend_microusd": {
+      "const": 0,
+      "default": 0,
+      "title": "External Llm Spend Microusd",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "usage_id",
+    "operation_id",
+    "attempt_id",
+    "model",
+    "provider",
+    "deployment",
+    "region",
+    "application_id",
+    "environment",
+    "task",
+    "kind",
+    "input_tokens",
+    "output_tokens",
+    "cost_microusd",
+    "currency",
+    "pricing_version",
+    "pricing_date",
+    "provider_outcome",
+    "retry",
+    "fallback_hop",
+    "modeled_latency_ms"
+  ],
+  "title": "UsageRecord",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,83 @@
+{
+  "$defs": {
+    "ServiceCredential": {
+      "additionalProperties": false,
+      "properties": {
+        "application_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Application Id",
+          "type": "string"
+        },
+        "token_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Token Sha256",
+          "type": "string"
+        },
+        "environments": {
+          "items": {
+            "enum": [
+              "development",
+              "staging",
+              "production"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Environments",
+          "type": "array"
+        },
+        "scopes": {
+          "items": {
+            "enum": [
+              "inference:write",
+              "usage:read",
+              "policy:read"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Scopes",
+          "type": "array"
+        },
+        "budget_microusd": {
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Budget Microusd",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "application_id",
+        "token_sha256",
+        "environments",
+        "scopes",
+        "budget_microusd"
+      ],
+      "title": "ServiceCredential",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "credentials": {
+      "items": {
+        "$ref": "#/$defs/ServiceCredential"
+      },
+      "maxItems": 20,
+      "title": "Credentials",
+      "type": "array"
+    },
+    "global_budget_microusd": {
+      "default": 0,
+      "maximum": 1000000000,
+      "minimum": 0,
+      "title": "Global Budget Microusd",
+      "type": "integer"
+    }
+  },
+  "title": "PrivateConfig",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

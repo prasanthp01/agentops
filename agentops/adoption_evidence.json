@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "slug": "agentops",
+  "title": "AgentOps canonical API and FlowOps refusal profile",
+  "git_revision": "f9b63cdc05be43d6953e27f02e117dda4079cdf9",
+  "status": "TESTED",
+  "environment": "test",
+  "public_route": "/projects/agentops",
+  "deployment_url": null,
+  "last_verified_at": "2026-10-13T16:50:02.508389Z",
+  "simulation": {
+    "mode": "SANDBOX_DETERMINISTIC",
+    "provenance": {
+      "app_version": "0.2.0-contracts.2",
+      "connector_kind": "MOCK",
+      "data_origin": "SYNTHETIC",
+      "fixtures_version": "synthetic-catalog-1.0.0",
+      "model_version": "synthetic-catalog-1.0.0",
+      "prompt_version": "none",
+      "rules_version": "policy-2026-10-v1",
+      "source_revision": "f9b63cdc05be43d6953e27f02e117dda4079cdf9",
+      "workflow_version": "agentops-routing-v1"
+    },
+    "input_schema_sha256": "a64b780f5ee6bcb2d91821b3faa270654f521b318b2eb733e2bf811681daa8d7"
+  },
+  "tests": [
+    {
+      "name": "Full canonical and application regression suite",
+      "status": "PASS",
+      "command": "uv run pytest --cov=agentops --cov-fail-under=90",
+      "evidence": {
+        "evidence_id": "peer-profile-tests",
+        "origin": "TEST",
+        "reference": "docs/evidence/flowops-peer-profile/tests.txt",
+        "sha256": "f61cfdbb3a1af9eb07ce644d6d87b7f9e33f529cae3a1da5853fb693a2b95f0b"
+      },
+      "conditions": "167 passed; 92.98 percent statement coverage; ephemeral local SQLite; one existing upstream deprecation warning.",
+      "executed_at": "2026-10-13T16:50:02.508389Z"
+    },
+    {
+      "name": "Pinned actual FlowOps PeerClient to real AgentOps HTTP",
+      "status": "PASS",
+      "command": "uv run python scripts/verify_flowops_peer.py --flowops-repo <checkout> --flowops-python <venv-python> --output work/peer.json",
+      "evidence": {
+        "evidence_id": "peer-profile-peer-http",
+        "origin": "TEST",
+        "reference": "docs/evidence/flowops-peer-profile/peer-http.json",
+        "sha256": "56c8d724363dd97eebd970494b2eee10ccb04f8b687bb87b736b857d8f78b4bc"
+      },
+      "conditions": "FlowOps 9e57bd7 client, synthetic unpersisted Run, explicit private grant, real HTTP. POLICY_BLOCKED/HUMAN_REVIEW; zero jobs, attempts, events, calls and spend. No default workflow integration.",
+      "executed_at": "2026-10-13T16:48:54.704251Z"
+    },
+    {
+      "name": "Standard canonical HTTP simulation and inference regression",
+      "status": "PASS",
+      "command": "uv run python scripts/verify_contracts_http.py --output work/http.json",
+      "evidence": {
+        "evidence_id": "peer-profile-standard-http",
+        "origin": "TEST",
+        "reference": "docs/evidence/flowops-peer-profile/standard-http.json",
+        "sha256": "e07074ef637fbba16902b5163fa90322c73211bc8d98c2504d8afc705d4641dd"
+      },
+      "conditions": "Executed at e1b779a253bc6f99cfb9f4c8e993bc8069a9cc05; runtime and dependencies are byte-identical at the aggregate revision. f9b63cd only fixes the peer test interpreter path.",
+      "executed_at": "2026-10-13T16:48:03.291731Z"
+    }
+  ],
+  "benchmarks": [],
+  "costs": [],
+  "skills": [],
+  "limits": [
+    "Local canonical API only; production remains on the remediated 0.1.3 legacy factory.",
+    "The FlowOps peer edge is verified for a policy refusal, not successful model inference or a persisted workflow.",
+    "Signed usage inbox/outbox/delivery is BLOCKED_NOT_IMPLEMENTED; no delivery success is claimed.",
+    "No real providers, paid calls, context dereferences, deployment, publication or new image scan."
+  ]
+}

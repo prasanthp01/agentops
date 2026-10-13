@@ -1,0 +1,92 @@
+# Place rate zones at http scope. Place locations inside the portfolio HTTPS server.
+# Retain existing method guards and all non-AgentOps locations. Join only the
+# existing HTTPS proxy to the dedicated internal agentops_edge Docker network.
+
+limit_req_zone $binary_remote_addr zone=agentops_api:1m rate=10r/s;
+limit_req_zone $binary_remote_addr zone=agentops_session:1m rate=10r/m;
+limit_conn_zone $binary_remote_addr zone=agentops_connections:1m;
+
+    location = /api/projects/agentops/session {
+        client_max_body_size 16k;
+        limit_req zone=agentops_session burst=5 nodelay;
+        limit_conn agentops_connections 8;
+        limit_conn_status 429;
+        resolver 127.0.0.11 valid=10s ipv6=off;
+        set $agentops_upstream http://agentops-gateway:8785;
+        proxy_pass $agentops_upstream;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For "";
+        proxy_set_header X-Real-IP "";
+        proxy_set_header Forwarded "";
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 40s;
+        proxy_send_timeout 15s;
+        proxy_buffering off;
+        proxy_cache off;
+        access_log off;
+    }
+    location ^~ /api/projects/agentops/ {
+        client_max_body_size 16k;
+        limit_req zone=agentops_api burst=30 nodelay;
+        limit_conn agentops_connections 8;
+        limit_conn_status 429;
+        resolver 127.0.0.11 valid=10s ipv6=off;
+        set $agentops_upstream http://agentops-gateway:8785;
+        proxy_pass $agentops_upstream;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For "";
+        proxy_set_header X-Real-IP "";
+        proxy_set_header Forwarded "";
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 40s;
+        proxy_send_timeout 15s;
+        proxy_buffering off;
+        proxy_cache off;
+        access_log off;
+    }
+    location = /projects/agentops {
+        client_max_body_size 16k;
+        limit_req zone=agentops_api burst=30 nodelay;
+        limit_conn agentops_connections 8;
+        limit_conn_status 429;
+        resolver 127.0.0.11 valid=10s ipv6=off;
+        set $agentops_upstream http://agentops-gateway:8785;
+        proxy_pass $agentops_upstream;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For "";
+        proxy_set_header X-Real-IP "";
+        proxy_set_header Forwarded "";
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 40s;
+        proxy_send_timeout 15s;
+        proxy_buffering off;
+        proxy_cache off;
+        access_log off;
+    }
+    location ^~ /projects/agentops/ {
+        client_max_body_size 16k;
+        limit_req zone=agentops_api burst=30 nodelay;
+        limit_conn agentops_connections 8;
+        limit_conn_status 429;
+        resolver 127.0.0.11 valid=10s ipv6=off;
+        set $agentops_upstream http://agentops-gateway:8785;
+        proxy_pass $agentops_upstream;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For "";
+        proxy_set_header X-Real-IP "";
+        proxy_set_header Forwarded "";
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 40s;
+        proxy_send_timeout 15s;
+        proxy_buffering off;
+        proxy_cache off;
+        access_log off;
+    }

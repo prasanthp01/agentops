@@ -1,0 +1,148 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "provider": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Provider",
+      "type": "string"
+    },
+    "deployment": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Deployment",
+      "type": "string"
+    },
+    "region": {
+      "enum": [
+        "EU",
+        "US",
+        "APAC"
+      ],
+      "title": "Region",
+      "type": "string"
+    },
+    "capabilities": {
+      "items": {
+        "enum": [
+          "text",
+          "json",
+          "tools",
+          "vision"
+        ],
+        "type": "string"
+      },
+      "title": "Capabilities",
+      "type": "array"
+    },
+    "languages": {
+      "items": {
+        "enum": [
+          "en",
+          "de",
+          "fr"
+        ],
+        "type": "string"
+      },
+      "title": "Languages",
+      "type": "array"
+    },
+    "classifications": {
+      "items": {
+        "enum": [
+          "PUBLIC",
+          "INTERNAL",
+          "CONFIDENTIAL",
+          "RESTRICTED"
+        ],
+        "type": "string"
+      },
+      "title": "Classifications",
+      "type": "array"
+    },
+    "max_context": {
+      "minimum": 1,
+      "title": "Max Context",
+      "type": "integer"
+    },
+    "quality_score": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Quality Score",
+      "type": "integer"
+    },
+    "quality_evidence": {
+      "title": "Quality Evidence",
+      "type": "string"
+    },
+    "input_microusd_per_1k": {
+      "minimum": 0,
+      "title": "Input Microusd Per 1K",
+      "type": "integer"
+    },
+    "output_microusd_per_1k": {
+      "minimum": 0,
+      "title": "Output Microusd Per 1K",
+      "type": "integer"
+    },
+    "pricing_version": {
+      "title": "Pricing Version",
+      "type": "string"
+    },
+    "pricing_date": {
+      "title": "Pricing Date",
+      "type": "string"
+    },
+    "latency_ms": {
+      "minimum": 1,
+      "title": "Latency Ms",
+      "type": "integer"
+    },
+    "reliability": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Reliability",
+      "type": "integer"
+    },
+    "priority": {
+      "title": "Priority",
+      "type": "integer"
+    },
+    "synthetic": {
+      "default": true,
+      "title": "Synthetic",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "provider",
+    "deployment",
+    "region",
+    "capabilities",
+    "languages",
+    "classifications",
+    "max_context",
+    "quality_score",
+    "quality_evidence",
+    "input_microusd_per_1k",
+    "output_microusd_per_1k",
+    "pricing_version",
+    "pricing_date",
+    "latency_ms",
+    "reliability",
+    "priority"
+  ],
+  "title": "Model",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

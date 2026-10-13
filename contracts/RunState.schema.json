@@ -1,0 +1,77 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "project_id": {
+      "const": "agentops",
+      "default": "agentops",
+      "title": "Project Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "SANDBOX_DETERMINISTIC",
+        "REPLAY_RECORDED",
+        "LIVE_MODEL_AUTHENTICATED"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED",
+        "EXPIRED"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "completed_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Completed At"
+    },
+    "event_count": {
+      "title": "Event Count",
+      "type": "integer"
+    },
+    "result_reference": {
+      "title": "Result Reference",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "mode",
+    "status",
+    "created_at",
+    "completed_at",
+    "event_count",
+    "result_reference"
+  ],
+  "title": "RunState",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

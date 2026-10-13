@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "const": "accepted",
+      "title": "Decision",
+      "type": "string"
+    },
+    "task_type": {
+      "enum": [
+        "summarize",
+        "classify",
+        "extract"
+      ],
+      "title": "Task Type",
+      "type": "string"
+    },
+    "synthetic": {
+      "const": true,
+      "title": "Synthetic",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decision",
+    "task_type",
+    "synthetic"
+  ],
+  "title": "ProviderOutput",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,201 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "task_type": {
+      "default": "summarize",
+      "enum": [
+        "summarize",
+        "classify",
+        "extract"
+      ],
+      "title": "Task Type",
+      "type": "string"
+    },
+    "required_capabilities": {
+      "default": [
+        "text",
+        "json"
+      ],
+      "items": {
+        "enum": [
+          "text",
+          "json",
+          "tools",
+          "vision"
+        ],
+        "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 1,
+      "title": "Required Capabilities",
+      "type": "array"
+    },
+    "allowed_regions": {
+      "default": [
+        "EU"
+      ],
+      "items": {
+        "enum": [
+          "EU",
+          "US",
+          "APAC"
+        ],
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Allowed Regions",
+      "type": "array"
+    },
+    "data_classification": {
+      "default": "INTERNAL",
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ],
+      "title": "Data Classification",
+      "type": "string"
+    },
+    "language": {
+      "default": "en",
+      "enum": [
+        "en",
+        "de",
+        "fr"
+      ],
+      "title": "Language",
+      "type": "string"
+    },
+    "latency_deadline_ms": {
+      "default": 3000,
+      "maximum": 15000,
+      "minimum": 50,
+      "title": "Latency Deadline Ms",
+      "type": "integer"
+    },
+    "quality_floor": {
+      "default": 80,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Quality Floor",
+      "type": "integer"
+    },
+    "strategy": {
+      "default": "lowest_cost",
+      "enum": [
+        "lowest_cost",
+        "priority",
+        "fastest",
+        "reliability"
+      ],
+      "title": "Strategy",
+      "type": "string"
+    },
+    "available_funds_microusd": {
+      "default": 20000,
+      "maximum": 1000000,
+      "minimum": 0,
+      "title": "Available Funds Microusd",
+      "type": "integer"
+    },
+    "input_tokens": {
+      "default": 2000,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Input Tokens",
+      "type": "integer"
+    },
+    "output_tokens": {
+      "default": 500,
+      "maximum": 8000,
+      "minimum": 1,
+      "title": "Output Tokens",
+      "type": "integer"
+    },
+    "provider_failures": {
+      "additionalProperties": {
+        "enum": [
+          "healthy",
+          "429",
+          "503",
+          "timeout",
+          "invalid_json",
+          "context_overflow",
+          "restricted_region"
+        ],
+        "type": "string"
+      },
+      "propertyNames": {
+        "enum": [
+          "cedar-eu",
+          "harbor-eu",
+          "swift-us",
+          "vault-eu"
+        ]
+      },
+      "title": "Provider Failures",
+      "type": "object"
+    },
+    "unavailable_models": {
+      "items": {
+        "enum": [
+          "cedar-eu",
+          "harbor-eu",
+          "swift-us",
+          "vault-eu"
+        ],
+        "type": "string"
+      },
+      "maxItems": 4,
+      "title": "Unavailable Models",
+      "type": "array"
+    },
+    "max_fallbacks": {
+      "default": 2,
+      "maximum": 3,
+      "minimum": 0,
+      "title": "Max Fallbacks",
+      "type": "integer"
+    },
+    "max_retries": {
+      "default": 1,
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Max Retries",
+      "type": "integer"
+    },
+    "retry_after_ms": {
+      "default": 300,
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "Retry After Ms",
+      "type": "integer"
+    },
+    "seed": {
+      "default": 42,
+      "maximum": 65535,
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "policy_version": {
+      "default": "policy-2026-10-v1",
+      "enum": [
+        "policy-2026-10-v1",
+        "expired-policy"
+      ],
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "control_plane_available": {
+      "default": true,
+      "title": "Control Plane Available",
+      "type": "boolean"
+    }
+  },
+  "title": "SimulationInput",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "default": "1.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "application_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Application Id",
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+    },
+    "direct_provider_allowed": {
+      "default": false,
+      "title": "Direct Provider Allowed",
+      "type": "boolean"
+    },
+    "budget_authority": {
+      "default": "central",
+      "pattern": "^central$",
+      "title": "Budget Authority",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_version",
+    "application_id",
+    "expires_at"
+  ],
+  "title": "CachedPolicy",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

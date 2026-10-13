@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "project_id": "agentops",
+  "mode": "SANDBOX_DETERMINISTIC",
+  "preset_id": "outage",
+  "input": {
+    "task_type": "summarize",
+    "required_capabilities": [
+      "text",
+      "json"
+    ],
+    "allowed_regions": [
+      "EU"
+    ],
+    "data_classification": "INTERNAL",
+    "language": "en",
+    "latency_deadline_ms": 3000,
+    "quality_floor": 80,
+    "strategy": "lowest_cost",
+    "available_funds_microusd": 20000,
+    "input_tokens": 2000,
+    "output_tokens": 500,
+    "provider_failures": [
+      {
+        "model": "cedar-eu",
+        "outcome": "503"
+      }
+    ],
+    "unavailable_models": [],
+    "max_fallbacks": 2,
+    "max_retries": 1,
+    "retry_after_ms": 300,
+    "policy_version": "policy-2026-10-v1",
+    "control_plane_available": true
+  },
+  "seed": 42,
+  "client_correlation_id": "adoption-outage"
+}

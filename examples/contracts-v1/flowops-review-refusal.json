@@ -1,0 +1,29 @@
+{
+  "application_id": "flowops",
+  "environment": "test",
+  "mode": "SANDBOX_DETERMINISTIC",
+  "task_type": "order_resolution_review",
+  "risk_class": "HIGH",
+  "required_capabilities": [
+    "STRUCTURED_OUTPUT"
+  ],
+  "data_classification": "PUBLIC",
+  "allowed_regions": [
+    "eu-test"
+  ],
+  "latency_deadline_ms": 2000,
+  "max_input_tokens": 1024,
+  "max_output_tokens": 256,
+  "max_cost": 0,
+  "currency": "EUR",
+  "routing_policy_version": "flowops-sandbox-no-spend-1",
+  "extensions": {},
+  "schema_version": "1.0",
+  "tenant_id": "peer-synthetic",
+  "trace_id": "flowops-peer-review-1",
+  "correlation_id": "peer-correlation",
+  "operation_id": "inference:flowops-peer-review-1",
+  "context_refs": [
+    "flowops-peer-review-1"
+  ]
+}

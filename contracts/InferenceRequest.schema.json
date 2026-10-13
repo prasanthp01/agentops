@@ -1,0 +1,200 @@
+{
+  "additionalProperties": false,
+  "description": "v1.1 explicitly extends the closed packaged v1.0 inference contract.",
+  "properties": {
+    "schema_version": {
+      "const": "1.1",
+      "default": "1.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "application_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Application Id",
+      "type": "string"
+    },
+    "environment": {
+      "enum": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "title": "Environment",
+      "type": "string"
+    },
+    "task_type": {
+      "enum": [
+        "summarize",
+        "classify",
+        "extract"
+      ],
+      "title": "Task Type",
+      "type": "string"
+    },
+    "required_capabilities": {
+      "items": {
+        "enum": [
+          "text",
+          "json",
+          "tools",
+          "vision"
+        ],
+        "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 1,
+      "title": "Required Capabilities",
+      "type": "array"
+    },
+    "data_classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ],
+      "title": "Data Classification",
+      "type": "string"
+    },
+    "allowed_regions": {
+      "items": {
+        "enum": [
+          "EU",
+          "US",
+          "APAC"
+        ],
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Allowed Regions",
+      "type": "array"
+    },
+    "latency_deadline_ms": {
+      "maximum": 15000,
+      "minimum": 50,
+      "title": "Latency Deadline Ms",
+      "type": "integer"
+    },
+    "max_cost_microusd": {
+      "maximum": 1000000,
+      "minimum": 0,
+      "title": "Max Cost Microusd",
+      "type": "integer"
+    },
+    "currency": {
+      "const": "USD",
+      "default": "USD",
+      "title": "Currency",
+      "type": "string"
+    },
+    "routing_policy_version": {
+      "const": "policy-2026-10-v1",
+      "title": "Routing Policy Version",
+      "type": "string"
+    },
+    "correlation_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Correlation Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "SANDBOX_DETERMINISTIC",
+        "LIVE_MODEL_AUTHENTICATED"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "quality_floor": {
+      "default": 80,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Quality Floor",
+      "type": "integer"
+    },
+    "input_tokens": {
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Input Tokens",
+      "type": "integer"
+    },
+    "output_tokens": {
+      "maximum": 8000,
+      "minimum": 1,
+      "title": "Output Tokens",
+      "type": "integer"
+    },
+    "language": {
+      "default": "en",
+      "enum": [
+        "en",
+        "de",
+        "fr"
+      ],
+      "title": "Language",
+      "type": "string"
+    },
+    "strategy": {
+      "default": "lowest_cost",
+      "enum": [
+        "lowest_cost",
+        "priority",
+        "fastest",
+        "reliability"
+      ],
+      "title": "Strategy",
+      "type": "string"
+    },
+    "max_fallbacks": {
+      "default": 2,
+      "maximum": 3,
+      "minimum": 0,
+      "title": "Max Fallbacks",
+      "type": "integer"
+    },
+    "max_retries": {
+      "default": 1,
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Max Retries",
+      "type": "integer"
+    },
+    "synthetic_task": {
+      "const": "service-status-summary",
+      "default": "service-status-summary",
+      "title": "Synthetic Task",
+      "type": "string"
+    }
+  },
+  "required": [
+    "application_id",
+    "environment",
+    "task_type",
+    "required_capabilities",
+    "data_classification",
+    "allowed_regions",
+    "latency_deadline_ms",
+    "max_cost_microusd",
+    "routing_policy_version",
+    "correlation_id",
+    "operation_id",
+    "mode",
+    "input_tokens",
+    "output_tokens"
+  ],
+  "title": "InferenceRequest",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,14 @@
+# Merge only in Session 06 after explicit routing authorization and staged tests.
+# Existing homepage and other application handlers are deliberately not defined here.
+@agentops_api path /api/projects/agentops /api/projects/agentops/*
+handle @agentops_api {
+    reverse_proxy 127.0.0.1:8785 {
+        flush_interval -1
+    }
+}
+@agentops_page path /projects/agentops /projects/agentops/*
+handle @agentops_page {
+    reverse_proxy 127.0.0.1:8785
+}
+# Preserve the full prefixes. Set AGENTOPS_SECURE_COOKIES=true behind HTTPS.
+# Add this fragment within the existing demo.example.com site block.

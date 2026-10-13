@@ -1,0 +1,462 @@
+{
+  "source": "installed package metadata; inventory, not legal approval",
+  "dependencies": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "boolean.py",
+      "version": "5.0",
+      "declared_license": "BSD-2-Clause",
+      "license_files": [
+        "LICENSE.txt",
+        "README.rst",
+        "CHANGELOG.rst"
+      ]
+    },
+    {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "declared_license": "MPL-2.0",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "name": "coverage",
+      "version": "7.16.2",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "LICENSE.txt",
+        "NOTICE.txt"
+      ]
+    },
+    {
+      "name": "cyclonedx-python-lib",
+      "version": "11.12.0",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "LICENSE",
+        "NOTICE"
+      ]
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "declared_license": "PSFL",
+      "license_files": []
+    },
+    {
+      "name": "fastapi",
+      "version": "0.143.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "filelock",
+      "version": "4.1.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        "LICENSE.md"
+      ]
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "declared_license": "BSD-3-Clause",
+      "license_files": []
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        "LICENSE.md"
+      ]
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "COPYING"
+      ]
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "COPYING"
+      ]
+    },
+    {
+      "name": "license-expression",
+      "version": "30.4.4",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "apache-2.0.LICENSE",
+        "NOTICE",
+        "AUTHORS.rst",
+        "CHANGELOG.rst",
+        "CODE_OF_CONDUCT.rst",
+        "README.rst"
+      ]
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "declared_license": "OSI Approved :: MIT License",
+      "license_files": [
+        "LICENSE",
+        "LICENSE.markdown-it"
+      ]
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "declared_license": "OSI Approved :: MIT License",
+      "license_files": []
+    },
+    {
+      "name": "msgpack",
+      "version": "1.2.3",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "COPYING"
+      ]
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.1",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "packageurl-python",
+      "version": "0.17.6",
+      "declared_license": "MIT",
+      "license_files": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "declared_license": "Apache-2.0 OR BSD-2-Clause",
+      "license_files": [
+        "LICENSE",
+        "LICENSE.APACHE",
+        "LICENSE.BSD"
+      ]
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "AUTHORS.txt",
+        "LICENSE.txt",
+        "src/pip/_vendor/cachecontrol/LICENSE.txt",
+        "src/pip/_vendor/certifi/LICENSE",
+        "src/pip/_vendor/distlib/LICENSE.txt",
+        "src/pip/_vendor/distro/LICENSE",
+        "src/pip/_vendor/idna/LICENSE.md",
+        "src/pip/_vendor/msgpack/COPYING",
+        "src/pip/_vendor/packaging/LICENSE",
+        "src/pip/_vendor/packaging/LICENSE.APACHE",
+        "src/pip/_vendor/packaging/LICENSE.BSD",
+        "src/pip/_vendor/pkg_resources/LICENSE",
+        "src/pip/_vendor/platformdirs/LICENSE",
+        "src/pip/_vendor/pygments/LICENSE",
+        "src/pip/_vendor/pyproject_hooks/LICENSE",
+        "src/pip/_vendor/requests/LICENSE",
+        "src/pip/_vendor/resolvelib/LICENSE",
+        "src/pip/_vendor/rich/LICENSE",
+        "src/pip/_vendor/tomli/LICENSE",
+        "src/pip/_vendor/tomli_w/LICENSE",
+        "src/pip/_vendor/truststore/LICENSE",
+        "src/pip/_vendor/urllib3/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "pip-requirements-parser",
+      "version": "32.0.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "mit.LICENSE",
+        "AUTHORS.rst",
+        "CHANGELOG.rst",
+        "README.rst"
+      ]
+    },
+    {
+      "name": "pip_api",
+      "version": "0.0.35",
+      "declared_license": "Apache License (see distribution license files)",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "pip_audit",
+      "version": "2.10.1",
+      "declared_license": "OSI Approved :: Apache Software License",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.13.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "py-serializable",
+      "version": "2.1.0",
+      "declared_license": "Apache-2.0",
+      "license_files": []
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "declared_license": "BSD-2-Clause",
+      "license_files": [
+        "AUTHORS",
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "pytest-cov",
+      "version": "7.1.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "AUTHORS.rst",
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "COPYING"
+      ]
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        "LICENSE",
+        "NOTICE"
+      ]
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "ruff",
+      "version": "0.17.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "sortedcontainers",
+      "version": "2.4.0",
+      "declared_license": "Apache 2.0",
+      "license_files": []
+    },
+    {
+      "name": "starlette",
+      "version": "1.8.0",
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        "LICENSE.md"
+      ]
+    },
+    {
+      "name": "tomli",
+      "version": "2.5.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "tomli_w",
+      "version": "1.2.0",
+      "declared_license": "OSI Approved :: MIT License",
+      "license_files": []
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "declared_license": "PSF-2.0",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "declared_license": "MIT",
+      "license_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        "LICENSE.md"
+      ]
+    }
+  ]
+}

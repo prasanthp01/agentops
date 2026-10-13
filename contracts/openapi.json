@@ -1,0 +1,1024 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AgentOps",
+    "version": "0.1.3"
+  },
+  "paths": {
+    "/api/projects/agentops/healthz": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_projects_agentops_healthz_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/healthz": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_healthz_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/session": {
+      "post": {
+        "summary": "Session",
+        "operationId": "session_api_projects_agentops_session_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulation/schema": {
+      "get": {
+        "summary": "Schema",
+        "operationId": "schema_api_projects_agentops_simulation_schema_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulation/presets": {
+      "get": {
+        "summary": "Get Presets",
+        "operationId": "get_presets_api_projects_agentops_simulation_presets_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/catalog": {
+      "get": {
+        "summary": "Get Catalog",
+        "operationId": "get_catalog_api_projects_agentops_catalog_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulations": {
+      "post": {
+        "summary": "Start Run",
+        "operationId": "start_run_api_projects_agentops_simulations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulationStart"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunState"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulations/{run_id}": {
+      "get": {
+        "summary": "Get Run",
+        "operationId": "get_run_api_projects_agentops_simulations__run_id__get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunState"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulations/{run_id}/result": {
+      "get": {
+        "summary": "Get Result",
+        "operationId": "get_result_api_projects_agentops_simulations__run_id__result_get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulations/{run_id}/cancel": {
+      "post": {
+        "summary": "Cancel",
+        "operationId": "cancel_api_projects_agentops_simulations__run_id__cancel_post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunState"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/simulations/{run_id}/events": {
+      "get": {
+        "summary": "Events",
+        "operationId": "events_api_projects_agentops_simulations__run_id__events_get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "title": "After"
+            }
+          },
+          {
+            "name": "transport",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "sse",
+              "title": "Transport"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/inferences": {
+      "post": {
+        "summary": "Inference",
+        "operationId": "inference_api_projects_agentops_inferences_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InferenceRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunState"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/usage": {
+      "get": {
+        "summary": "Usage",
+        "operationId": "usage_api_projects_agentops_usage_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/agentops/policy": {
+      "get": {
+        "summary": "Policy",
+        "operationId": "policy_api_projects_agentops_policy_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Local Root",
+        "operationId": "local_root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects/agentops/": {
+      "get": {
+        "summary": "Index",
+        "operationId": "index_projects_agentops__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects/agentops": {
+      "get": {
+        "summary": "Index",
+        "operationId": "index_projects_agentops_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "InferenceRequest": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.1",
+            "title": "Schema Version",
+            "default": "1.1"
+          },
+          "application_id": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_.:-]+$",
+            "title": "Application Id"
+          },
+          "environment": {
+            "type": "string",
+            "enum": [
+              "development",
+              "staging",
+              "production"
+            ],
+            "title": "Environment"
+          },
+          "task_type": {
+            "type": "string",
+            "enum": [
+              "summarize",
+              "classify",
+              "extract"
+            ],
+            "title": "Task Type"
+          },
+          "required_capabilities": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "text",
+                "json",
+                "tools",
+                "vision"
+              ]
+            },
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Required Capabilities"
+          },
+          "data_classification": {
+            "type": "string",
+            "enum": [
+              "PUBLIC",
+              "INTERNAL",
+              "CONFIDENTIAL",
+              "RESTRICTED"
+            ],
+            "title": "Data Classification"
+          },
+          "allowed_regions": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "EU",
+                "US",
+                "APAC"
+              ]
+            },
+            "type": "array",
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Allowed Regions"
+          },
+          "latency_deadline_ms": {
+            "type": "integer",
+            "maximum": 15000.0,
+            "minimum": 50.0,
+            "title": "Latency Deadline Ms"
+          },
+          "max_cost_microusd": {
+            "type": "integer",
+            "maximum": 1000000.0,
+            "minimum": 0.0,
+            "title": "Max Cost Microusd"
+          },
+          "currency": {
+            "type": "string",
+            "const": "USD",
+            "title": "Currency",
+            "default": "USD"
+          },
+          "routing_policy_version": {
+            "type": "string",
+            "const": "policy-2026-10-v1",
+            "title": "Routing Policy Version"
+          },
+          "correlation_id": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_.:-]+$",
+            "title": "Correlation Id"
+          },
+          "operation_id": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_.:-]+$",
+            "title": "Operation Id"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "SANDBOX_DETERMINISTIC",
+              "LIVE_MODEL_AUTHENTICATED"
+            ],
+            "title": "Mode"
+          },
+          "quality_floor": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Quality Floor",
+            "default": 80
+          },
+          "input_tokens": {
+            "type": "integer",
+            "maximum": 100000.0,
+            "minimum": 1.0,
+            "title": "Input Tokens"
+          },
+          "output_tokens": {
+            "type": "integer",
+            "maximum": 8000.0,
+            "minimum": 1.0,
+            "title": "Output Tokens"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "de",
+              "fr"
+            ],
+            "title": "Language",
+            "default": "en"
+          },
+          "strategy": {
+            "type": "string",
+            "enum": [
+              "lowest_cost",
+              "priority",
+              "fastest",
+              "reliability"
+            ],
+            "title": "Strategy",
+            "default": "lowest_cost"
+          },
+          "max_fallbacks": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Max Fallbacks",
+            "default": 2
+          },
+          "max_retries": {
+            "type": "integer",
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "title": "Max Retries",
+            "default": 1
+          },
+          "synthetic_task": {
+            "type": "string",
+            "const": "service-status-summary",
+            "title": "Synthetic Task",
+            "default": "service-status-summary"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "application_id",
+          "environment",
+          "task_type",
+          "required_capabilities",
+          "data_classification",
+          "allowed_regions",
+          "latency_deadline_ms",
+          "max_cost_microusd",
+          "routing_policy_version",
+          "correlation_id",
+          "operation_id",
+          "mode",
+          "input_tokens",
+          "output_tokens"
+        ],
+        "title": "InferenceRequest",
+        "description": "v1.1 explicitly extends the closed packaged v1.0 inference contract."
+      },
+      "RunState": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "project_id": {
+            "type": "string",
+            "const": "agentops",
+            "title": "Project Id",
+            "default": "agentops"
+          },
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "SANDBOX_DETERMINISTIC",
+              "REPLAY_RECORDED",
+              "LIVE_MODEL_AUTHENTICATED"
+            ],
+            "title": "Mode"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACCEPTED",
+              "RUNNING",
+              "SUCCEEDED",
+              "FAILED",
+              "CANCELLED",
+              "EXPIRED"
+            ],
+            "title": "Status"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "event_count": {
+            "type": "integer",
+            "title": "Event Count"
+          },
+          "result_reference": {
+            "type": "string",
+            "title": "Result Reference"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "run_id",
+          "mode",
+          "status",
+          "created_at",
+          "completed_at",
+          "event_count",
+          "result_reference"
+        ],
+        "title": "RunState"
+      },
+      "SimulationInput": {
+        "properties": {
+          "task_type": {
+            "type": "string",
+            "enum": [
+              "summarize",
+              "classify",
+              "extract"
+            ],
+            "title": "Task Type",
+            "default": "summarize"
+          },
+          "required_capabilities": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "text",
+                "json",
+                "tools",
+                "vision"
+              ]
+            },
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Required Capabilities",
+            "default": [
+              "text",
+              "json"
+            ]
+          },
+          "allowed_regions": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "EU",
+                "US",
+                "APAC"
+              ]
+            },
+            "type": "array",
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Allowed Regions",
+            "default": [
+              "EU"
+            ]
+          },
+          "data_classification": {
+            "type": "string",
+            "enum": [
+              "PUBLIC",
+              "INTERNAL",
+              "CONFIDENTIAL",
+              "RESTRICTED"
+            ],
+            "title": "Data Classification",
+            "default": "INTERNAL"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "de",
+              "fr"
+            ],
+            "title": "Language",
+            "default": "en"
+          },
+          "latency_deadline_ms": {
+            "type": "integer",
+            "maximum": 15000.0,
+            "minimum": 50.0,
+            "title": "Latency Deadline Ms",
+            "default": 3000
+          },
+          "quality_floor": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Quality Floor",
+            "default": 80
+          },
+          "strategy": {
+            "type": "string",
+            "enum": [
+              "lowest_cost",
+              "priority",
+              "fastest",
+              "reliability"
+            ],
+            "title": "Strategy",
+            "default": "lowest_cost"
+          },
+          "available_funds_microusd": {
+            "type": "integer",
+            "maximum": 1000000.0,
+            "minimum": 0.0,
+            "title": "Available Funds Microusd",
+            "default": 20000
+          },
+          "input_tokens": {
+            "type": "integer",
+            "maximum": 100000.0,
+            "minimum": 1.0,
+            "title": "Input Tokens",
+            "default": 2000
+          },
+          "output_tokens": {
+            "type": "integer",
+            "maximum": 8000.0,
+            "minimum": 1.0,
+            "title": "Output Tokens",
+            "default": 500
+          },
+          "provider_failures": {
+            "additionalProperties": {
+              "type": "string",
+              "enum": [
+                "healthy",
+                "429",
+                "503",
+                "timeout",
+                "invalid_json",
+                "context_overflow",
+                "restricted_region"
+              ]
+            },
+            "propertyNames": {
+              "enum": [
+                "cedar-eu",
+                "harbor-eu",
+                "swift-us",
+                "vault-eu"
+              ]
+            },
+            "type": "object",
+            "title": "Provider Failures"
+          },
+          "unavailable_models": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "cedar-eu",
+                "harbor-eu",
+                "swift-us",
+                "vault-eu"
+              ]
+            },
+            "type": "array",
+            "maxItems": 4,
+            "title": "Unavailable Models"
+          },
+          "max_fallbacks": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Max Fallbacks",
+            "default": 2
+          },
+          "max_retries": {
+            "type": "integer",
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "title": "Max Retries",
+            "default": 1
+          },
+          "retry_after_ms": {
+            "type": "integer",
+            "maximum": 10000.0,
+            "minimum": 0.0,
+            "title": "Retry After Ms",
+            "default": 300
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 65535.0,
+            "minimum": 0.0,
+            "title": "Seed",
+            "default": 42
+          },
+          "policy_version": {
+            "type": "string",
+            "enum": [
+              "policy-2026-10-v1",
+              "expired-policy"
+            ],
+            "title": "Policy Version",
+            "default": "policy-2026-10-v1"
+          },
+          "control_plane_available": {
+            "type": "boolean",
+            "title": "Control Plane Available",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "SimulationInput"
+      },
+      "SimulationStart": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "project_id": {
+            "type": "string",
+            "const": "agentops",
+            "title": "Project Id",
+            "default": "agentops"
+          },
+          "mode": {
+            "type": "string",
+            "const": "SANDBOX_DETERMINISTIC",
+            "title": "Mode",
+            "default": "SANDBOX_DETERMINISTIC"
+          },
+          "preset_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9_.:-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preset Id"
+          },
+          "input": {
+            "$ref": "#/components/schemas/SimulationInput"
+          },
+          "client_correlation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9_.:-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Correlation Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "input"
+        ],
+        "title": "SimulationStart"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

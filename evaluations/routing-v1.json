@@ -1,0 +1,14 @@
+{"version":"routing-golden-1.0.0","provenance":"Authored synthetic policy expectations, no real provider quality measurements","cases":[
+{"id":"economical-eu","input":{},"expected":{"outcome":"SUCCEEDED","selected_model":"cedar-eu","total_cost_microusd":280}},
+{"id":"restricted-data","input":{"data_classification":"RESTRICTED"},"expected":{"outcome":"SUCCEEDED","selected_model":"vault-eu"}},
+{"id":"tool-capability","input":{"required_capabilities":["tools"]},"expected":{"outcome":"SUCCEEDED","selected_model":"harbor-eu"}},
+{"id":"primary-outage","input":{"provider_failures":{"cedar-eu":"503"}},"expected":{"outcome":"SUCCEEDED","selected_model":"harbor-eu","model_fallback":true}},
+{"id":"no-regional-provider","input":{"allowed_regions":["APAC"]},"expected":{"outcome":"POLICY_BLOCKED","attempt_count":0}},
+{"id":"no-budget","input":{"available_funds_microusd":0},"expected":{"outcome":"BUDGET_EXHAUSTED","attempt_count":0}},
+{"id":"malformed-counted","input":{"provider_failures":{"cedar-eu":"invalid_json"}},"expected":{"outcome":"SUCCEEDED","total_cost_microusd":940}},
+{"id":"control-plane-outage","input":{"control_plane_available":false},"expected":{"outcome":"AI_UNAVAILABLE","attempt_count":0}},
+{"id":"expired-policy","input":{"policy_version":"expired-policy"},"expected":{"outcome":"POLICY_BLOCKED","attempt_count":0}},
+{"id":"ineligible-cheap-provider","input":{"allowed_regions":["US"],"quality_floor":80},"expected":{"outcome":"POLICY_BLOCKED","attempt_count":0}},
+{"id":"us-quality-opt-in","input":{"allowed_regions":["US"],"quality_floor":70},"expected":{"outcome":"SUCCEEDED","selected_model":"swift-us"}},
+{"id":"fallback-disabled","input":{"provider_failures":{"cedar-eu":"503"},"max_fallbacks":0},"expected":{"outcome":"AI_UNAVAILABLE","selected_model":null}}
+]}

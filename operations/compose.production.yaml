@@ -1,0 +1,37 @@
+name: agentops_prod
+services:
+  agentops:
+    image: ${AGENTOPS_IMAGE:?Set the verified immutable release image}
+    restart: unless-stopped
+    init: true
+    user: "10001:10001"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 384m
+    cpus: 0.50
+    ports: ["127.0.0.1:8785:8785"]
+    environment:
+      AGENTOPS_DB: /data/agentops.db
+      AGENTOPS_SECURE_COOKIES: "true"
+      AGENTOPS_PUBLIC_ORIGIN: ${AGENTOPS_PUBLIC_ORIGIN:?Set the HTTPS origin for your deployment}
+    volumes:
+      - agentops_data:/data
+    tmpfs:
+      - /tmp:size=16m,mode=1777,noexec,nosuid
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: "2"
+    networks:
+      agentops_edge:
+        aliases: [agentops-gateway]
+volumes:
+  agentops_data:
+    name: agentops_prod_data
+networks:
+  agentops_edge:
+    name: agentops_edge
+    internal: true

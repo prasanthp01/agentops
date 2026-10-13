@@ -1,0 +1,156 @@
+{
+  "corpus_version": "routing-golden-1.0.0",
+  "mode": "SANDBOX_DETERMINISTIC",
+  "cases": [
+    {
+      "id": "economical-eu",
+      "expected": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "cedar-eu",
+        "total_cost_microusd": 280
+      },
+      "actual": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "cedar-eu",
+        "total_cost_microusd": 280
+      },
+      "pass": true
+    },
+    {
+      "id": "restricted-data",
+      "expected": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "vault-eu"
+      },
+      "actual": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "vault-eu"
+      },
+      "pass": true
+    },
+    {
+      "id": "tool-capability",
+      "expected": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "harbor-eu"
+      },
+      "actual": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "harbor-eu"
+      },
+      "pass": true
+    },
+    {
+      "id": "primary-outage",
+      "expected": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "harbor-eu",
+        "model_fallback": true
+      },
+      "actual": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "harbor-eu",
+        "model_fallback": true
+      },
+      "pass": true
+    },
+    {
+      "id": "no-regional-provider",
+      "expected": {
+        "outcome": "POLICY_BLOCKED",
+        "attempt_count": 0
+      },
+      "actual": {
+        "outcome": "POLICY_BLOCKED",
+        "attempt_count": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "no-budget",
+      "expected": {
+        "outcome": "BUDGET_EXHAUSTED",
+        "attempt_count": 0
+      },
+      "actual": {
+        "outcome": "BUDGET_EXHAUSTED",
+        "attempt_count": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "malformed-counted",
+      "expected": {
+        "outcome": "SUCCEEDED",
+        "total_cost_microusd": 940
+      },
+      "actual": {
+        "outcome": "SUCCEEDED",
+        "total_cost_microusd": 940
+      },
+      "pass": true
+    },
+    {
+      "id": "control-plane-outage",
+      "expected": {
+        "outcome": "AI_UNAVAILABLE",
+        "attempt_count": 0
+      },
+      "actual": {
+        "outcome": "AI_UNAVAILABLE",
+        "attempt_count": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "expired-policy",
+      "expected": {
+        "outcome": "POLICY_BLOCKED",
+        "attempt_count": 0
+      },
+      "actual": {
+        "outcome": "POLICY_BLOCKED",
+        "attempt_count": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "ineligible-cheap-provider",
+      "expected": {
+        "outcome": "POLICY_BLOCKED",
+        "attempt_count": 0
+      },
+      "actual": {
+        "outcome": "POLICY_BLOCKED",
+        "attempt_count": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "us-quality-opt-in",
+      "expected": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "swift-us"
+      },
+      "actual": {
+        "outcome": "SUCCEEDED",
+        "selected_model": "swift-us"
+      },
+      "pass": true
+    },
+    {
+      "id": "fallback-disabled",
+      "expected": {
+        "outcome": "AI_UNAVAILABLE",
+        "selected_model": null
+      },
+      "actual": {
+        "outcome": "AI_UNAVAILABLE",
+        "selected_model": null
+      },
+      "pass": true
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}

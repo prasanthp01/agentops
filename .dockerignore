@@ -1,0 +1,26 @@
+.git
+.venv
+var
+work
+.env
+config/private.json
+output
+.playwright-cli
+.pytest_cache
+.ruff_cache
+__pycache__
+.coverage
+docs/evidence
+
+# Private local runtime and verification artifacts
+.env*
+!.env.example
+.local/
+*.secret
+*.secret.json
+*.db
+*.db-*
+*.sqlite*
+*.dump
+*.log
+.DS_Store
