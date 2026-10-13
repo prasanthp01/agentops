@@ -10,3 +10,55 @@
 @media(max-width:380px){.form-grid{grid-template-columns:1fr}.unit{display:inline;margin-left:4px}.provider-row{grid-template-columns:1fr auto}.provider-row>label:first-child{grid-column:1/-1}.provider-row select{font-size:.75rem}.sim-toolbar>label{flex-basis:100%}.sim-toolbar>select{max-width:100%}.tabs button{font-size:.65rem}.panel-heading .mono{font-size:.5rem}}
 
 .error button{margin:10px 0 0;display:block}.sidebar{overflow-y:auto;overscroll-behavior:contain}
+
+/* Keep complete scenario and provider option labels readable on phones. */
+@media (max-width: 600px) {
+  .case-agentops .sim-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 12px;
+    align-items: center;
+  }
+  .case-agentops .sim-toolbar > label {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .case-agentops .sim-toolbar > .quiet {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 44px;
+  }
+  .case-agentops .sim-toolbar > select {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .case-agentops .sim-toolbar > .caption {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  .case-agentops .provider-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+    padding-block: 8px;
+  }
+  .case-agentops .provider-row > label:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .case-agentops .provider-row .health-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 44px;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .case-agentops .provider-row > select {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+  }
+}
