@@ -32,7 +32,7 @@ Example deployment URL: `https://demo.example.com/projects/agentops`; API: `/api
 
 Session admission is limited by the connection peer. With an unconfigured reverse proxy, that may be the proxy itself, conservatively limiting all new sessions together. Staging must confirm desired fairness without making spoofable headers authoritative.
 
-Inventory the existing proxy, services, storage, and available CPU/RAM/disk first. Back up configurations and prove DB restore. Test a temporary isolated route before authorized cutover. Never replace the existing homepage handler; AgentOps's local root redirect is not a portfolio homepage. Existing ResolveAI migration belongs to Session 06.
+Inventory the existing proxy, services, storage, and available CPU/RAM/disk first. Back up configurations and prove DB restore. Test a temporary isolated route before authorized cutover. Never replace the existing homepage handler; AgentOps's local root redirect is not a portfolio homepage. Keep other applications and their data isolated.
 
 ## Rollback and failure drills
 

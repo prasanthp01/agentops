@@ -1,0 +1,45 @@
+{
+  "verified_at": "2026-10-13T19:28:04.569276+00:00",
+  "implementation_commit": "afb98ee02e39d9014dbb2964863d718dbbb715b7",
+  "scope": "single-host synthetic self-hosted release",
+  "tests": {
+    "tests": 173,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "hosted_ci": "https://github.com/prasanthp01/agentops/actions/runs/38454233337",
+  "security": {
+    "high_critical_image_vulnerabilities": 0,
+    "source_secret_findings": 0,
+    "docker_misconfiguration_findings": 0,
+    "private_vulnerability_reporting": true
+  },
+  "runtime": {
+    "image_id": "sha256:498f8b3387f3c1b814a3fa2cc93b15c3657e03747110989ae2af705c7b12e71c",
+    "user": "10001:10001",
+    "read_only": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "memory_bytes": 402653184,
+    "health": "healthy"
+  },
+  "browser": {
+    "mobile_viewport_width": 390,
+    "mobile_overflow": false,
+    "desktop_review": false,
+    "scope": "keyless scenario smoke; not physical-device or full accessibility certification",
+    "observed_scenarios": [
+      "Economical route selected cedar-eu",
+      "Primary outage selected compatible harbor-eu fallback"
+    ]
+  },
+  "not_validated": [
+    "Live paid-provider execution",
+    "Enterprise identity and tenancy",
+    "Commercial workload or production SLA",
+    "Independent penetration testing"
+  ],
+  "coverage_percent": 93.07
+}
