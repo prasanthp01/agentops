@@ -6,7 +6,7 @@ Version **0.1.3**. The default application is a self-hostable deterministic demo
 
 ## Run locally
 
-Install Docker Engine with Compose v2. Use the Docker context that runs your engine; do not change another application's context or configuration.
+Install [Docker Desktop or Docker Engine with the Compose plugin](https://docs.docker.com/get-started/get-docker/) and Git, then start the Docker engine. Check that `docker info` and `docker compose version` succeed. Commands use a POSIX shell (macOS, Linux or WSL2 on Windows). If you use a named Docker context, pass `docker --context NAME compose ...` consistently. After cloning, run the remaining commands from the repository root.
 
 ```sh
 git clone https://github.com/prasanthp01/agentops.git
@@ -14,9 +14,28 @@ cd agentops
 docker compose up --build -d --wait
 ```
 
-Open **http://127.0.0.1:8785/projects/agentops**. The default stack publishes only a loopback port. Generated credentials are ignored by Git; keep them private. Configuration helpers preserve existing files. Stop with `docker compose stop`; retain volumes and secrets to resume later. See [troubleshooting](docs/TROUBLESHOOTING.md).
+Open **http://127.0.0.1:8785/projects/agentops**. The default stack publishes only a loopback port and creates its SQLite database automatically in a named Docker volume. No `.env`, provider key, host Python or external database is needed. Retain the volume to preserve local data. See [troubleshooting](docs/TROUBLESHOOTING.md).
 
 ![Project demonstration](docs/images/demo.png)
+
+### Check and restart
+
+```sh
+docker compose ps
+curl --fail --silent --show-error http://127.0.0.1:8785/healthz
+docker compose stop
+docker compose up -d --wait
+```
+
+Readiness must return HTTP 200. For startup failures, inspect `docker compose logs --tail=80 agentops`. Reload the browser after restarting. Use `stop` to pause; `down` removes this Compose project's containers and network but retains its named volume. Do not use `down -v` when you want to keep your data.
+
+For an occupied port or a second checkout, use a separate Compose project and matching port/origin:
+
+```sh
+AGENTOPS_HOST_PORT=8786 AGENTOPS_PUBLIC_ORIGIN=http://127.0.0.1:8786 docker compose -p agentops-second up --build -d --wait
+```
+
+Open `http://127.0.0.1:8786/projects/agentops`. Keep the same environment overrides and `-p agentops-second` on subsequent Compose commands; otherwise you will address the default instance. [Compose project names](https://docs.docker.com/compose/how-tos/project-name/) isolate containers and volumes between checkouts.
 
 ## Try it
 
@@ -41,7 +60,7 @@ For an internet-facing deployment, follow [deployment requirements](docs/DEPLOYM
 
 ## Verify and contribute
 
-Python verification uses Python 3.12 and `uv`. The lockfile pins the resolved dependencies.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) for source verification. The following commands select Python 3.12 and install the locked development dependencies. Run them from the repository root.
 
 ```sh
 uv sync --frozen --python 3.12
@@ -51,7 +70,7 @@ uv run python -m scripts.evaluate
 uv run python -m scripts.export_contracts
 ```
 
-Database tests require disposable databases and refuse ordinary application databases. Never point tests, load tools or recovery drills at a live deployment. The [release report](docs/RELEASE_READINESS.md) records current test results and remaining limits. Hosted CI repeats the relevant checks on pushes and pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for the test environment and review process.
+Tests create temporary SQLite databases automatically; PostgreSQL, Redis and a running Docker stack are not required for this verification block. `scripts.evaluate` prints the deterministic routing score, and contract export should leave `git diff -- contracts` empty. Never point tests, load tools or recovery drills at a live deployment. The [release report](docs/RELEASE_READINESS.md) records current test results and remaining limits. Hosted CI repeats the relevant checks on pushes and pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for the test environment and review process.
 
 ## Performance and cost
 
